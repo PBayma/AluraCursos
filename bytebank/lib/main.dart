@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
       home: Scaffold(
-        body: Center(
-          child: Card(
+        body: Card(
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
@@ -15,7 +14,7 @@ void main() => runApp(MaterialApp(
               ],
             ),
           ),
-        ),
+
         appBar: AppBar(
           backgroundColor: Colors.lightGreen[900],
           title: const Text(
