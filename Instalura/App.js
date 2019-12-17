@@ -15,18 +15,25 @@ const fotos = [{ id: 1, usuario: 'Alberto' },
 
 class Instalura extends Component {
 
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
       fotos: []
     };
   }
 
   componentDidMount() {
-    
+    fetch('https://instalura-api.herokuapp.com/api/public/fotos/rafael')
+    .then(reposta => reposta.json())
+    .then(json => this.setState({fotos: json}))
+    .catch(e => {
+      console.warn('Não foi possível carregar as fotos:' + e);
+      this.setState({status: 'ERRO'});
+    })
   }
 
   render() {
+
     return (
         <FlatList //to map and create new components
         keyExtractor = {item => item.id}
